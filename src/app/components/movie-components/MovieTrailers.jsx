@@ -40,7 +40,7 @@ const MovieTrailers = () => {
 
   // 4. Display the movie trailers in a list
   return (
-    <div className='bg-black container px-6 pt-6 pb-4 mb-16 border-b-2 border-slate-500 shadow-xl shadow-neutral-700 rounded-t-lg'>
+    <div className='bg-black container px-6 pt-6 pb-4 mb-12 border-b-2 border-slate-500 shadow-xl shadow-neutral-700 rounded-t-lg'>
       <h2 className='text-3xl text-slate-300 pb-6'>Most Watched Features & Clips This Week</h2>
       <ul className='flex gap-10 overflow-x-scroll'>
         {trailers.map((trailer, index) => (

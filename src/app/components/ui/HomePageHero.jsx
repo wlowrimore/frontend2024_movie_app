@@ -3,7 +3,7 @@ import React from 'react'
 
 const HomePageHero = () => {
   return (
-    <div className='w-full h-[50%] mt-28 my-16 bg-homepage-hero bg-cover bg-center bg-norepeat container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700'>
+    <div className='w-full h-[50%] mt-28 mb-12 bg-homepage-hero bg-cover bg-center bg-norepeat container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700'>
       <div className='flex bg-gradient-to-l from-black/30 to-black/70'>
         <div className='flex flex-col p-10 w-[42rem]'>
           <div className='p-4'>
