@@ -16,7 +16,7 @@ const Header = async () => {
           {session ? (
             <>
               <div className='text-indigo-200 flex gap-6'>
-                <p classNaem='py-1 px-2'>Welcome,&nbsp; {session.user.name}</p>
+                <p className='py-1 px-2'>Welcome,&nbsp; {session.user.name}</p>
                 {session?.user?.image ? (
                   <Image
                     src={session.user.image}
@@ -27,12 +27,12 @@ const Header = async () => {
                   />
                 ) : null}
               </div>
-              <div>
-                <Link href='/api/auth/signout' classNaem='py-1 px-2'>SignOut</Link>
+              <div className=''>
+                <Link href='/api/auth/signout' className='py-1 px-2'><h3 className='text-indigo-100 hover:text-indigo-300 transition duration-300'>SignOut</h3></Link>
               </div>
             </>
           ) : (
-            <Link href='/api/auth/signin' classNaem='py-1 px-2'>SignIn</Link>
+            <Link href='/api/auth/signin' className='py-1 px-2'>SignIn</Link>
           )}
         </div>
       </div>
