@@ -1,9 +1,11 @@
 import Image from 'next/image'
-import React from 'react'
+import Mobile from '/public/images/mobile.webp';
+import GooglePlayLogo from '/public/images/google-play-logo.webp';
+import AppStoreLogo from '/public/images/app-store-logo.webp';
 
 const CTASummary = () => {
   return (
-    <div className='w-screen h-[50%] mb-12 bg-gradient-to-r from-black to black/40 container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700'>
+    <div className='w-screen h-[50%] mb-12 bg-gradient-to-r from-black to black/40 container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700 px-20'>
       <div className='flex'>
         <div className='flex flex-col p-10 w-full'>
           <p className='px-4 pb-4 text-3xl text-white tracking-wider uppercase'>You&apos;ll get access to</p>
@@ -27,8 +29,35 @@ const CTASummary = () => {
           </div>
           <p className='text-end pr-4 pt-4 text-3xl text-white tracking-wider uppercase'>. . . and so much more!</p>
         </div>
-        <div className='flex flex-col p-10 w-full'>
-          <h2 className='text-3xl text-white'>Stream and download your favorite movies and tv shows with the new Next Movies mobile app.</h2>
+        <div className='grid grid-cols-2 w-full relative my-24'>
+          <div className='flex flex-col'>
+            <h2 className='text-3xl w-full ml-20 bg-gradient-to-b from-purple-200 to-purple-400 bg-clip-text text-transparent'>Now you can stream and download your favorite movies and tv shows with the new Next Movies mobile app.</h2>
+            <div className='flex justify-center ml-[3.5rem] mt-4 gap-2'>
+              <Image
+                src={GooglePlayLogo}
+                alt='Google Play Logo'
+                width={200}
+                height={200}
+                className='w-28 opacity-60'
+              />
+              <Image
+                src={AppStoreLogo}
+                alt='App Store Logo'
+                width={200}
+                height={200}
+                className='w-28 opacity-70'
+              />
+            </div>
+          </div>
+          <div className='absolute right-12 bottom-[-3.2rem]'>
+            <Image
+              src={Mobile}
+              alt='Mobile app'
+              width={400}
+              height={400}
+              className='w-44'
+            />
+          </div>
         </div>
       </div>
     </div>
