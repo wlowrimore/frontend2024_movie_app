@@ -4,6 +4,7 @@ import HomePageHero from './components/homePageComponents/HomePageHero';
 import MovieTrailers from './components/homePageComponents/MovieTrailers';
 import CTASummary from './components/homePageComponents/CTASummary';
 import TopTenMovies from './components/homePageComponents/TopTenMovies';
+import SEOFeatures from './components/homePageComponents/SEOFeatures';
 
 export default async function Home() {
   const session = await getServerSession(Options);
@@ -18,6 +19,9 @@ export default async function Home() {
       </div>
       <div>
         <TopTenMovies />
+      </div>
+      <div>
+        <SEOFeatures />
       </div>
     </main>
   );
