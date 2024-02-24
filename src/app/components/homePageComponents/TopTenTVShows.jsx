@@ -19,7 +19,7 @@ const TopTenTVShows = () => {
   }, [])
 
   return (
-    <div className='bg-black container px-6 pt-6 pb-4 mb-12 border-b-2 border-slate-500 shadow-xl shadow-neutral-700 rounded-t-lg'>
+    <div className='bg-black container px-6 pt-6 pb-4 mb-24 border-b-2 border-slate-500 shadow-xl shadow-neutral-700 rounded-t-lg'>
       <h2 className='text-3xl w-full text-slate-300 pb-6'>Top 10 TV Shows This Week</h2>
       <div className='flex gap-6 overflow-x-scroll'>
         {topShows.map((show) => (
@@ -40,7 +40,7 @@ const TopTenTVShows = () => {
                 )}
               </p>
               <div className='flex items-center mt-2 text-sm text-slate-300 gap-4'>
-                <h3>{show.title}</h3>
+                <h3>{show.name}</h3>
                 <p>{show.first_air_date.split('-')[0]}</p>
               </div>
               <div className='flex items-center'>

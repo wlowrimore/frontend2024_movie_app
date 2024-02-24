@@ -15,6 +15,9 @@ const SEOFeatures = () => {
           className='pt-4'
         />
         <p>Download To Any Device</p>
+        <div className='text-[1.3rem] font-bold my-4'>
+          <button className='bg-amber-200 py-1 px-5 text-neutral-800 rounded-lg hover:bg-cyan-700 hover:text-white transition duration-300'>7-Days Free</button>
+        </div>
       </div>
       <div className='flex flex-col w-64 items-center'>
         <Image
@@ -25,6 +28,9 @@ const SEOFeatures = () => {
           className='py-4'
         />
         <p>Stream On Any Device</p>
+        <div className='text-[1.3rem] font-bold my-4'>
+          <button className='bg-amber-200 py-1 px-5 text-neutral-800 rounded-lg hover:bg-cyan-700 hover:text-white transition duration-300'>7-Days Free</button>
+        </div>
       </div>
       <div className='flex flex-col w-64 items-center'>
         <Image
@@ -34,7 +40,10 @@ const SEOFeatures = () => {
           height={350}
           className='py-4'
         />
-        <p>Enjoy on All Devices</p>
+        <p>Enjoy with All Devices</p>
+        <div className='text-[1.3rem] font-bold my-4'>
+          <button className='bg-amber-200 py-1 px-5 text-neutral-800 rounded-lg hover:bg-cyan-700 hover:text-white transition duration-300'>7-Days Free</button>
+        </div>
       </div>
     </div>
   )

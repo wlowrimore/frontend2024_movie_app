@@ -1,20 +1,22 @@
 import Image from 'next/image';
-import { Options } from '../api/auth/[...nextauth]/options';
+import { Options } from '../../api/auth/[...nextauth]/options';
 import { getProviders, signIn, signOut, useSession } from 'next-auth/react';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
+import SearchBar from './SearchBar';
 
 const Header = async () => {
   const session = await getServerSession(Options);
   // const { data: session } = useSession({ required: true });
   return (
-    <nav className='fixed z-20 top-0 left-0 right-0 border-b-4 border-slate-200 bg-slate-800'>
+    <nav className='fixed z-20 top-0 left-0 right-0 shadow-xl shadow-slate-600 border-slate-600 bg-slate-800'>
       <div className='w-full flex items-center justify-between py-3 container mx-auto'>
 
         <h1 className='text-3xl uppercase text-zinc-200'>Next Movies</h1>
         <div className='flex text-zinc-200 items-center gap-10'>
           {session ? (
             <>
+              <SearchBar />
               <div className='text-indigo-200 flex items-center gap-2'>
                 <p className='py-1 px-2 font-light tracking-wide'>{session.user.name}</p>
                 {session?.user?.image ? (
@@ -36,11 +38,14 @@ const Header = async () => {
                 )}
               </div>
               <div className=''>
-                <Link href='/api/auth/signout' className='py-1 px-2'><h3 className='text-indigo-100 hover:text-indigo-300 transition duration-300'>SignOut</h3></Link>
+                <Link href='/api/auth/signout' className='py-1 px-2'><h3 className='text-slate-200 hover:text-slate-400 hover:underline transition duration-300'>SignOut</h3></Link>
               </div>
             </>
           ) : (
-            <Link href='/api/auth/signin' className='py-1 px-2'>SignIn</Link>
+            <>
+              {/* <p className='text-rose-500'>Sign in to browse site</p> */}
+              <Link href='/api/auth/signin' className='py-1 px-2 text-slate-200 hover:text-slate-400 hover:underline transition duration-300'>Sign in for full access</Link>
+            </>
           )}
         </div>
       </div>
