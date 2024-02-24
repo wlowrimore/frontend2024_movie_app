@@ -14,7 +14,7 @@ const HomePageHero = () => {
             <p className='text-lg text-white mb-2 tracking-wider'>With Next Movies you will have access to the largest movie database with over one million movies and tv shows to choose from.</p>
             <p className='text-lg text-white tracking-wider'>Sign up today to take advantage of our 7-day free trial offer.  We are so confident that you will enjoy using Next Movies that we require no credit card for registration.</p>
             <div className='py-6'>
-              <button className='py-2 px-4 bg-purple-300 text-lg rounded hover:bg-purple-400/70 hover:text-white transition duration-300'>Claim Your Free Trial Now</button>
+              <button className='py-2 px-4 bg-red-600 text-lg text-white border rounded hover:bg-purple-300 hover:text-black transition duration-300'>Claim Your Free Trial Now</button>
             </div>
           </div>
         </div>

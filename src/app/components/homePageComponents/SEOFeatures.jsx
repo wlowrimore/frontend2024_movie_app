@@ -5,7 +5,7 @@ import DevicesIcon from '/public/images/icons/devices.webp'
 
 const SEOFeatures = () => {
   return (
-    <div className='w-screen flex text-center justify-around items-center text-purple-300 text-3xl container px-6 pt-6 pb-4 mb-12'>
+    <div className='w-screen flex text-center justify-around items-center text-purple-300 text-3xl container px-6 pt-6 pb-4 my-12 border-b-2 border-slate-500 rounded bg-gradient-to-t from-black to-transparent shadow-xl shadow-neutral-700'>
       <div className='flex flex-col w-64 items-center'>
         <Image
           src={DownloadIcon}
