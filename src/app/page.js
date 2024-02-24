@@ -1,7 +1,8 @@
 import { Options } from './api/auth/[...nextauth]/options';
 import { getServerSession } from 'next-auth';
-import HomePageHero from './components/ui/HomePageHero';
-import MovieTrailers from './components/movie-components/MovieTrailers';
+import HomePageHero from './components/homePageComponents/HomePageHero';
+import MovieTrailers from './components/homePageComponents/MovieTrailers';
+import CTASummary from './components/homePageComponents/CTASummary';
 
 export default async function Home() {
   const session = await getServerSession(Options);
@@ -10,6 +11,9 @@ export default async function Home() {
       <HomePageHero />
       <div>
         <MovieTrailers />
+      </div>
+      <div>
+        <CTASummary />
       </div>
     </main>
   );
