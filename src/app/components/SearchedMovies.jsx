@@ -42,7 +42,7 @@ const SearchedMovies = async ({ query }) => {
                   alt={movie.title}
                   className='w-4 h-4'
                 />
-                {movie.vote_average <= 0 ? 'Be the first to rate' :
+                {movie.vote_average <= 0 ? 'no ratings yet' :
                   <p>{movie.vote_average.toFixed(1)}</p>
                 }
                 {movie.vote_count <= 0 ? '' :
