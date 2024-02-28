@@ -31,7 +31,7 @@ const TopTenTVShows = () => {
                     src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
                     width={200}
                     height={300}
-                    alt={show.title}
+                    alt={show.name}
                     className='w-full h-full object-cover border rounded cursor-pointer hover:opacity-70 transition duration-300'
                   />
 

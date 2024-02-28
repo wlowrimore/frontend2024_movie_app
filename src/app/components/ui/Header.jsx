@@ -12,7 +12,7 @@ const Header = async () => {
     <nav className='fixed z-20 top-0 left-0 right-0 shadow-xl shadow-slate-600 border-slate-600 bg-slate-800'>
       <div className='w-full flex items-center justify-between py-3 container mx-auto'>
 
-        <h1 className='text-3xl uppercase text-zinc-200'>Next Movies</h1>
+        <Link href='/'><h1 className='text-3xl uppercase text-zinc-200'>Next Movies</h1></Link>
         <div className='flex text-zinc-200 items-center gap-10'>
           {session ? (
             <>

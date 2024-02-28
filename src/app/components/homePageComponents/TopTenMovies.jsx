@@ -50,8 +50,6 @@ const TopTenMovies = () => {
                 <p className='mr-2'>{movie.vote_average.toFixed(1)}</p>
                 <p>&#40; {movie.vote_count}&nbsp;votes &#41;</p>
               </div>
-              {/* <p>{movie.popularity}</p> */}
-              {/* <p>{movie.overview}</p> */}
             </div>
           </div>
         ))}
