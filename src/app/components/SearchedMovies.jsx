@@ -42,8 +42,12 @@ const SearchedMovies = async ({ query }) => {
                   alt={movie.title}
                   className='w-4 h-4'
                 />
-                <p>{movie.vote_average}</p>
-                <p>&#40; {movie.vote_count} &#41;</p>
+                {movie.vote_average <= 0 ? 'Be the first to rate' :
+                  <p>{movie.vote_average.toFixed(1)}</p>
+                }
+                {movie.vote_count <= 0 ? '' :
+                  <p>&#40; {movie.vote_count} &#41;</p>
+                }
                 <p className='ml-6'>{movie.release_date.split('-')[0]}</p>
               </div>
             </div>
