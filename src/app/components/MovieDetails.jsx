@@ -28,7 +28,7 @@ const MovieDetails = ({ movie, closeModal }) => {
               width={500}
               height={600}
               alt={movie.title}
-              className='rounded-2xl shadow-md border border-zinc-500'
+              className='rounded-lg shadow-md border border-zinc-500'
             />
           ) : (
             null
