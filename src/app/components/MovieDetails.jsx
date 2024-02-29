@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect } from 'react';
 import Image from "next/image";
 import Star from '/public/images/star.webp';
 
@@ -6,6 +9,14 @@ const MovieDetails = ({ movie, closeModal }) => {
   const handleClick = (e) => {
     e.stopPropagation();
   }
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [])
 
   return (
     <div className="fixed inset-0 top-10 bg-black/40 backdrop-blur-sm flex items-center justify-center" onClick={() => closeModal()}>

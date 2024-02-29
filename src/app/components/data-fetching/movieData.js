@@ -6,8 +6,8 @@ export async function fetchMovies(query) {
   return movies;
 }
 
-export async function fetchMovieDetail(id) {
-  const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`);
-  const selectedMovie = await res.json();
-  return selectedMovie;
+export async function fetchTopTenMovies(id) {
+  const res = await fetch(`https://api.themoviedb.org/3/trending/movie/week?language=en-US&api_key=${API_KEY}`);
+  const topTenMovies = await res.json();
+  return topTenMovies.results.slice(0, 10);
 }

@@ -1,22 +1,41 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { fetchTopTenMovies } from '../data-fetching/movieData';
+import MovieDetails from '../MovieDetails';
 import Image from 'next/image'
 import Star from '/public/images/star.webp';
 
-const TopTenMovies = () => {
+const TopTenMovies = ({ id }) => {
   const [topMovies, setTopMovies] = useState([])
+  const [selectedTopMovie, setSelectedTopMovie] = useState(null);
 
-  const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+  // const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+
+  // useEffect(() => {
+  //   const fetchTopMovies = async () => {
+  //     const res = await fetch(`https://api.themoviedb.org/3/trending/movie/week?language=en-US&api_key=${API_KEY}`);
+  //     const data = await res.json();
+  //     setTopMovies(data.results.slice(0, 10));
+  //   };
+  //   fetchTopMovies();
+  // }, []);
+
+  const openModal = (movie) => {
+    setSelectedTopMovie(movie);
+  };
+
+  const closeModal = () => {
+    setSelectedTopMovie(null);
+  };
 
   useEffect(() => {
-    const fetchTopMovies = async () => {
-      const res = await fetch(`https://api.themoviedb.org/3/trending/movie/week?language=en-US&api_key=${API_KEY}`);
-      const data = await res.json();
-      setTopMovies(data.results.slice(0, 10));
+    const getTopMovies = async () => {
+      const topTenMovies = await fetchTopTenMovies(id);
+      setTopMovies(topTenMovies);
     };
-    fetchTopMovies();
-  }, []);
+    getTopMovies();
+  }, [id])
 
 
 
@@ -27,7 +46,7 @@ const TopTenMovies = () => {
         {topMovies.map((movie) => (
           <div key={movie.id} className='flex mb-4'>
             <div className='flex flex-col text-white'>
-              <p className='w-52 h-72'>
+              <p className='w-52 h-72' onClick={(() => openModal(movie))}>
                 {movie ? (
                   <Image
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -54,6 +73,7 @@ const TopTenMovies = () => {
           </div>
         ))}
       </div>
+      {selectedTopMovie && <MovieDetails movie={selectedTopMovie} closeModal={closeModal} />}
     </div>
   )
 }

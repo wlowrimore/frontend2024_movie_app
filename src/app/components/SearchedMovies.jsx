@@ -25,14 +25,13 @@ const SearchedMovies = ({ query }) => {
   useEffect(() => {
     const getMovies = async () => {
       const fetchedMovies = await fetchMovies(query);
-      setMovies(fetchedMovies.results); // Update state with fetched movies list
+      setMovies(fetchedMovies.results);
     };
     getMovies();
-  }, [query]); // Add query as a dependency to refetch when it changes
+  }, [query]);
 
   const formattedQuery = capitalizeFirstLetter(query);
 
-  // Conditional rendering based on the movies list
   if (!movies || movies.length === 0) {
     return <p>No results found for {formattedQuery}</p>;
   }
