@@ -1,26 +1,15 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { fetchMovieCast } from './data-fetching/movieData';
 import Image from "next/image";
 import Star from '/public/images/star.webp';
 
 const MovieDetails = ({ id, movie, closeModal }) => {
-
   const [cast, setCast] = useState([]);
 
   const handleClick = (e) => {
     e.stopPropagation();
   }
-
-  // useEffect = () => {
-  //   const getCast = async () => {
-  //     const cast = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`)
-  //     const castData = await cast.json();
-  //     console.log("CAST DATA", castData)
-  //   }
-  //   getCast();
-  // }, []
 
   useEffect(() => {
     const getCast = async () => {
@@ -82,24 +71,24 @@ const MovieDetails = ({ id, movie, closeModal }) => {
             </div>
           )}
 
-          <div className='flex space-x-8 my-12'>
+          <div className='flex space-x-8 my-24'>
             {cast?.map((actor) => (
-              <div key={actor.id} className='flex flex-col'>
-                <p className='text-xs text-slate-400 tracking-wider mb-2'>{actor.character}</p>
+              <div key={actor.id} className='flex flex-col justify-center w-24 h-32'>
+                <p className='text-xs text-slate-400 tracking-wider mb-2 max-w-24'>{actor.character}</p>
                 {actor.profile_path ? (
                   <Image
                     src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
                     width={40}
                     height={40}
                     alt={actor.name}
-                    className='w-24 h-32 rounded-md'
+                    className='w-full h-full objuect-cover rounded-md'
                   />
                 ) :
                   <div className='flex flex-col items-center justify-center bg-black/50 w-24 h-32 rounded-md'>
                     <p className='text-red-400 text-center'>No Image Available</p>
                   </div>
                 }
-                <div className='flex flex-col text-slate-200 mt-2 mb-4'>
+                <div className='flex flex-col text-slate-200 mt-2 mb-4 max-w-24'>
                   <p className='text-sm'>{actor.name}</p>
                 </div>
               </div>
