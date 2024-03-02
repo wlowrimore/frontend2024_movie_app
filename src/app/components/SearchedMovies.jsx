@@ -29,6 +29,8 @@ const SearchedMovies = ({ query }) => {
   useEffect(() => {
     const getMovies = async () => {
       const fetchedMovies = await fetchMovies(query, currentPage);
+
+      console.log("Fetched movies:", fetchedMovies.results);
       setMovies(fetchedMovies.results);
       setTotalPages(fetchedMovies.total_pages)
     };
