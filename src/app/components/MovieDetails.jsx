@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Image from "next/image";
 import Star from '/public/images/star.webp';
 
+const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
+
 const MovieDetails = ({ id, movie, closeModal }) => {
   const [cast, setCast] = useState([]);
 
@@ -13,7 +15,7 @@ const MovieDetails = ({ id, movie, closeModal }) => {
 
   useEffect(() => {
     const getCast = async () => {
-      const cast = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`)
+      const cast = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${API_KEY}`);
       const castData = await cast.json();
       const mainCast = castData.cast.slice(0, 4);
       setCast(mainCast);
@@ -31,7 +33,7 @@ const MovieDetails = ({ id, movie, closeModal }) => {
   console.log(cast)
   return (
     <div className="fixed inset-0 top-10 bg-black/40 backdrop-blur-sm flex items-center justify-center" onClick={() => closeModal()}>
-      <div className="flex bg-zinc-800 p-12 gap-8 rounded-lg w-[60%] m-12">
+      <div className="flex bg-zinc-800 p-12 gap-8 rounded-lg w-[70%] h-[90%] m-12">
         {
           movie.poster_path ? (
             <Image
@@ -60,7 +62,7 @@ const MovieDetails = ({ id, movie, closeModal }) => {
           ) : (
             <div className='flex items-center gap-2'>
               <Image
-                src={Star.src}
+                src={Star}
                 width={20}
                 height={20}
                 alt='star'
@@ -71,24 +73,26 @@ const MovieDetails = ({ id, movie, closeModal }) => {
             </div>
           )}
 
-          <div className='flex space-x-8 my-24'>
+          <div className='flex space-x-8 mt-24'>
             {cast?.map((actor) => (
-              <div key={actor.id} className='flex flex-col justify-center w-24 h-32'>
-                <p className='text-xs text-slate-400 tracking-wider mb-2 max-w-24'>{actor.character}</p>
+              <div key={actor.id} className='flex flex-col justify-center items-center w-[10rem] h-[16rem]'>
+                <div className='flex'>
+                  <p className='flex text-xs text-slate-400 mt-2 mb-2'>{actor.character}</p>
+                </div>
                 {actor.profile_path ? (
                   <Image
                     src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
-                    width={40}
-                    height={40}
+                    width={1000}
+                    height={1000}
                     alt={actor.name}
-                    className='w-full h-full objuect-cover rounded-md'
+                    className='w-44 h-[14rem] objuect-cover rounded-md border border-zinc-500'
                   />
                 ) :
-                  <div className='flex flex-col items-center justify-center bg-black/50 w-24 h-32 rounded-md'>
-                    <p className='text-red-400 text-center'>No Image Available</p>
+                  <div className='flex flex-col px-2 py-[5.2rem] bg-black rounded-md border border-zinc-500'>
+                    <p className='text-red-400 text-xl text-center'>No Image Available</p>
                   </div>
                 }
-                <div className='flex flex-col text-slate-200 mt-2 mb-4 max-w-24'>
+                <div className='flex text-slate-200 mt-2 mb-4'>
                   <p className='text-sm'>{actor.name}</p>
                 </div>
               </div>
