@@ -1,7 +1,20 @@
-import Image from 'next/image'
+'use client'
+
+import { useState, useEffect } from 'react'
 import React from 'react'
+import TrialForm from '../forms/TrialForm'
 
 const HomePageHero = () => {
+  const [formIsOpen, setFormIsOpen] = useState(false)
+
+  const handleOpenForm = () => {
+    setFormIsOpen(true);
+  }
+
+  const handleCloseForm = () => {
+    setFormIsOpen(false);
+  }
+
   return (
     <div className='w-full h-[50%] mt-28 mb-12 bg-homepage-hero bg-cover bg-center bg-norepeat container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700'>
       <div className='flex bg-gradient-to-l from-black/30 to-black/70'>
@@ -14,13 +27,11 @@ const HomePageHero = () => {
             <p className='text-lg text-white mb-2 tracking-wider'>With Next Movies you will have access to the largest movie database with over one million movies and tv shows to choose from.</p>
             <p className='text-lg text-white tracking-wider'>Sign up today to take advantage of our 7-day free trial offer.  We are so confident that you will enjoy using Next Movies that we require no credit card for registration.</p>
             <div className='py-6'>
-              <button className='py-2 px-4 bg-red-600 text-lg text-white border rounded hover:bg-purple-300 hover:text-black transition duration-300'>Claim Your Free Trial Now</button>
+              <button onClick={handleOpenForm} className='py-2 px-4 bg-red-600 text-lg text-white border rounded hover:bg-purple-300 hover:text-black transition duration-300'>Claim Your Free Trial Now</button>
             </div>
           </div>
         </div>
-        <div className='flex flex-col'>
-
-        </div>
+        {formIsOpen && <TrialForm handleCloseForm={handleCloseForm} />}
       </div>
     </div>
   )

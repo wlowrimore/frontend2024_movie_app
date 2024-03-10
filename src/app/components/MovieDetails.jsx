@@ -8,6 +8,7 @@ const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
 
 const MovieDetails = ({ id, movie, closeModal }) => {
   const [cast, setCast] = useState([]);
+  const [movieReviews, setMovieReviews] = useState([]);
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -28,12 +29,10 @@ const MovieDetails = ({ id, movie, closeModal }) => {
       document.body.style.overflow = 'auto'
     }
   }, [])
-
-
-  console.log(cast)
+  console.log("CAST", cast)
   return (
-    <div className="fixed inset-0 top-10 bg-black/40 backdrop-blur-sm flex items-center justify-center" onClick={() => closeModal()}>
-      <div className="flex bg-zinc-800 p-12 gap-8 rounded-lg w-[70%] h-[90%] m-12">
+    <div className="fixed h-screen inset-0 top-10 bg-black/40 backdrop-blur-sm flex flex-col items-center justify-center overflow-y-scroll" onClick={() => closeModal()}>
+      <div className="flex bg-zinc-800 p-12 gap-8 rounded-lg w-[71%] h-full mt-12 mb-20">
         {
           movie.poster_path ? (
             <Image
