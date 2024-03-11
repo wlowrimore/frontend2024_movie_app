@@ -66,12 +66,12 @@ const TrialForm = ({ handleCloseForm }) => {
   return (
     <main className='fixed z-20 inset-0 backdrop-blur-sm flex items-center justify-center bg-neutral-900/60'>
       {successMsg ? (
-        <div className='fixed inset-44 bg-gradient-to-r from-blue-700 to-red-800 flex flex-col gap-10 items-center justify-center rounded-2xl border-2 border-zinc-200'>
+        <div className='fixed inset-44 2xl:w-1/2 mx-auto bg-gradient-to-r from-blue-700 to-red-800 flex flex-col gap-10 items-center justify-center rounded-2xl border-2 border-zinc-200'>
           <h3 className='text-5xl text-white'>{successMsg}</h3>
           <button onClick={removeFormAndMsg} className='px-5 py-7 rounded-full text-zinc-50 text-lg tracking-wider font-bold bg-slate-900/30 border-2 border-zinc-50 hover:bg-green-500/50 transition duration-300'>Start</button>
         </div>
       ) : null}
-      <div className='flex bg-slate-100/50 p-28 w-4/5 border-2 border-zinc-300 rounded-lg shadow-xl shadow-neutral-800'>
+      <div className='flex bg-slate-100/50 p-28 2xl:w-1/2 border-2 border-zinc-300 rounded-lg shadow-xl shadow-neutral-800'>
         <div className='flex flex-col'>
           <div className='w-4/5'>
             <h2 className='text-5xl font-bold uppercase'>
@@ -86,15 +86,7 @@ const TrialForm = ({ handleCloseForm }) => {
           </div>
         </div>
         <form onSubmit={handleFormSubmit} className='flex flex-col space-y-4'>
-          <div className='flex items-center gap-4'>([
-            {
-              firstName,
-              lastName,
-              email,
-              country,
-              isChecked
-            }
-            ])
+          <div className='flex items-center gap-4'>
             <input
               type="text"
               value={firstName}
