@@ -1,8 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Nunito_Sans } from 'next/font/google';
 import CountriesDropdown from '../ui/CountriesDropdown';
 import TermsCheckbox from '../ui/TermsCheckbox';
+
+const nunito = Nunito_Sans({ subsets: ['latin'] }, { weight: ['200', '400', '600', '800', '700'] })
+
 const TrialForm = ({ handleCloseForm }) => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -74,7 +78,7 @@ const TrialForm = ({ handleCloseForm }) => {
       <div className='flex bg-slate-100/50 p-28 2xl:w-1/2 border-2 border-zinc-300 rounded-lg shadow-xl shadow-neutral-800'>
         <div className='flex flex-col'>
           <div className='w-4/5'>
-            <h2 className='text-5xl font-bold uppercase'>
+            <h2 className={`${nunito.className} text-5xl font-bold uppercase`}>
               Starting your free trial is easy.
             </h2>
             <ul className='list-disc px-6 text-lg text-neutral-700 font-semibold tracking-wide my-4'>
