@@ -21,7 +21,11 @@ const CountriesDropdown = ({ handleSelectCountry }) => {
 
   return (
     <div>
-      <select onChange={handleSelectCountry} onClick={showDropdown} className='w-full p-2 border-2 border-zinc-300 rounded-lg cursor-pointer'>
+      <select
+        onChange={handleSelectCountry}
+        onClick={showDropdown}
+        className='w-full p-2 border-2 border-zinc-300 rounded-lg cursor-pointer'>
+        required
         <option value="">Select Country</option>
         {countries && countries.map((country, index) => (
           <option key={index} value={country.english_name}>{country.english_name}</option>

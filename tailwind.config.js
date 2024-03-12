@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "homepage-hero": "url('/images/backgrounds/no-country.webp')",
+        "trial-form": "url('/images/backgrounds/big-lebowski.webp')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
