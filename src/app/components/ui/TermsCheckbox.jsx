@@ -1,12 +1,17 @@
-import Link from 'next/link'
-import React from 'react'
+'use client'
 
-const TermsCheckbox = ({ handleCheckboxChange }) => {
+import { useTrialUser } from '@/app/context/TrialUserContext';
+import Link from 'next/link'
+
+const TermsCheckbox = () => {
+  const { isChecked, handleCheckboxChange } = useTrialUser();
   return (
     <div className='flex text-sm items-center gap-2'>
       <input
         onClick={handleCheckboxChange}
-        type="checkbox" name="terms" id="terms"
+        type="checkbox"
+        name="terms"
+        id="terms"
         className='w-4 h-4 cursor-pointer'
         required
       />

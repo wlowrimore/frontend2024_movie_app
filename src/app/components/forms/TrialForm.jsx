@@ -1,28 +1,22 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useTrialUser } from '@/app/context/TrialUserContext';
 import { Nunito_Sans } from 'next/font/google';
 import CountriesDropdown from '../ui/CountriesDropdown';
 import TermsCheckbox from '../ui/TermsCheckbox';
+import { useState, useEffect } from 'react';
 
 const nunito = Nunito_Sans({ subsets: ['latin'] }, { weight: ['200', '400', '600', '800', '700'] })
 
 const TrialForm = ({ handleCloseForm }) => {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [country, setCountry] = useState('')
-  const [isChecked, setIsChecked] = useState(false)
-  const [successMsg, setSuccessMsg] = useState('')
+  const { trialUser, addOrUpdateTrialUser, isChecked, country } = useTrialUser();
+  const { firstName, lastName, email } = trialUser || {};
+  const [successMsg, setSuccessMsg] = useState(null)
 
-  const [trialClaimantData, setTrialClaimantData] = useState([]);
-
-  const handleCheckboxChange = (e) => {
-    setIsChecked(e.target.checked)
-  }
-
-  const handleSelectCountry = (e) => {
-    setCountry(e.target.value)
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    console.log('INPUT CHANGE', name, value);
+    addOrUpdateTrialUser(name, value);
   }
 
   const removeFormAndMsg = () => {
@@ -32,40 +26,25 @@ const TrialForm = ({ handleCloseForm }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    const newEntry = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      country: country,
-      isChecked: isChecked
-    }
 
-    setTrialClaimantData([...trialClaimantData, newEntry])
-
-    if (trialClaimantData) {
-
-      setSuccessMsg(`Thank you ${firstName.toUpperCase()}! Your free trial is now active!`)
-    }
+    // const newUser = {
+    //   firstName: firstName,
+    //   lastName: lastName,
+    //   email: email,
+    //   country: country,
+    //   isChecked: isChecked
+    // }
+    // addOrUpdateTrialUser(newUser);
+    localStorage.setItem('trialUser', JSON.stringify(trialUser));
+    setSuccessMsg(`Thank you ${firstName}! You may now enjoy your 7-day free trial.`)
   }
 
   useEffect(() => {
-    const existingData = JSON.parse(localStorage.getItem('trialClaimantData')) || [];
-
-    if (Array.isArray(trialClaimantData)) {
-      const combinedData = [...existingData, ...trialClaimantData];
-      localStorage.setItem('trialClaimantData', JSON.stringify(combinedData));
-    } else {
-      console.error('trialClaimantData is not an array.');
+    const savedUser = localStorage.getItem('trialUser');
+    if (savedUser) {
+      addOrUpdateTrialUser(JSON.parse(savedUser));
     }
-  }, [trialClaimantData])
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
-
-    return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, []);
+  }, [])
 
   return (
     <main className='fixed z-20 inset-0 backdrop-blur-sm flex items-center justify-center bg-zinc-600/80'>
@@ -94,16 +73,18 @@ const TrialForm = ({ handleCloseForm }) => {
           <div className='flex items-center gap-4'>
             <input
               type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              name='firstName'
+              value={firstName || ''}
+              onChange={handleInputChange}
               className='p-2 border-2 border-zinc-300 rounded-lg'
               placeholder='First Name'
               required
             />
             <input
               type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              name='lastName'
+              value={lastName || ''}
+              onChange={handleInputChange}
               className='p-2 border-2 border-zinc-300 rounded-lg'
               placeholder='Last Name'
               required
@@ -111,16 +92,18 @@ const TrialForm = ({ handleCloseForm }) => {
           </div>
           <input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name='email'
+            value={email || ''}
+            onChange={handleInputChange}
             className='p-2 border-2 border-zinc-300 rounded-lg'
             placeholder='Email'
             required
           />
-          <CountriesDropdown handleSelectCountry={handleSelectCountry} />
-          <TermsCheckbox handleCheckboxChange={handleCheckboxChange} />
+          <CountriesDropdown />
+          <TermsCheckbox />
           <div className='flex gap-8 2xl:gap-5 mx-auto'>
             <button
+              type='submit'
               disabled={!isChecked}
               className={`py-3 px-[4.8rem] text-xl text-white border rounded-lg transition duration-300 ${isChecked ? 'bg-red-600/80 hover:bg-red-700' : 'bg-red-600/30 border-none cursor-not-allowed'}`}>Claim Now</button>
 
