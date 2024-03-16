@@ -9,7 +9,7 @@ const CTASummary = () => {
       <div className='flex flex-col md:flex-row'>
         <div className='flex flex-col md:p-10 md:w-full'>
           <p className='hidden md:inline-block px-4 pb-4 text-xl md:text-3xl text-white tracking-wider uppercase'>You&apos;ll get access to</p>
-          <div className='p-4 grid grid-cols-2 gap-4 md:gap-6 text-center'>
+          <div className='p-4 my-12 md:my-0 grid grid-cols-2 gap-4 md:gap-6 text-center'>
             <div className='flex flex-col w-full text-3xl text-slate-900 font-bold border border-slate-500 rounded p-4 bg-gradient-to-l from-rose-400 to-blue-300'>
               <p className='md:mb-[-0.6rem] md:mt-[0.5rem]'>FAMILY</p>
               <p className='hidden md:block text-[1.3rem] text-slate-700'>Movies & TV</p>
@@ -29,10 +29,10 @@ const CTASummary = () => {
           </div>
           <p className='hidden md:inline-block text-end pr-4 pt-4 text-3xl text-white tracking-wider uppercase'>. . . and so much more!</p>
         </div>
-        <div className='grid grid-cols-2 w-full relative my-24'>
+        <div className='flex md:grid grid-cols-2 w-full relative md:my-24'>
           <div className='flex flex-col'>
-            <h2 className='text-3xl w-full ml-20 bg-gradient-to-b from-purple-200 to-purple-400 bg-clip-text text-transparent'>Now you can stream and download your favorite movies and tv shows with the new Next Movies mobile app.</h2>
-            <div className='flex justify-center ml-[3.5rem] mt-4 gap-2'>
+            <h2 className='md:text-3xl w-full mt-[-2rem] md:mt-0 ml-4 md:ml-20 bg-gradient-to-b from-purple-200 to-purple-400 bg-clip-text text-transparent'>Now you can stream and download your favorite movies and tv shows with the new Next Movies mobile app.</h2>
+            <div className='flex justify-center md:ml-[3.5rem] mt-44 mb-12 md:mt-4 gap-2'>
               <Image
                 src={GooglePlayLogo}
                 alt='Google Play Logo'
@@ -55,7 +55,7 @@ const CTASummary = () => {
               alt='Mobile app'
               width={400}
               height={400}
-              className='w-44'
+              className='w-32 md:w-44'
             />
           </div>
         </div>
