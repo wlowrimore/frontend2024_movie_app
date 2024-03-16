@@ -11,6 +11,7 @@ export const TrialUserProvider = ({ children }) => {
     email: '',
     country: '',
     isChecked: false,
+    trialBeginDate: new Date().toLocaleDateString(),
   });
   const [isChecked, setIsChecked] = useState(false);
   const [country, setCountry] = useState('');

@@ -11,27 +11,12 @@ import TopTenTVShows from '../TopTenTVShows';
 const HomeSwitch = () => {
   const { searchQuery } = useSearch();
   return (
-    <div>
-      {/* {searchQuery ? (<AllMoviesResults />) : ( */}
-      <>
-        <HomePageHero />
-        <div>
-          {/* <MovieTrailers /> */}
-        </div>
-        <div>
-          <CTASummary />
-        </div>
-        <div>
-          <TopTenMovies />
-        </div>
-        <div>
-          <SEOFeatures />
-        </div>
-        <div>
-          <TopTenTVShows />
-        </div>
-      </>
-      {/* )} */}
+    <div className=''>
+      <HomePageHero />
+      <CTASummary />
+      {/* <TopTenMovies /> */}
+      {/* <SEOFeatures /> */}
+      {/* <TopTenTVShows /> */}
     </div>
   )
 }

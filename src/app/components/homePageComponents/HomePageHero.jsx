@@ -16,10 +16,11 @@ const HomePageHero = () => {
   }
 
   return (
-    <div className='w-full h-[50%] mt-28 mb-12 bg-homepage-hero bg-cover bg-center bg-norepeat container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700'>
-      <div className='flex bg-gradient-to-l from-black/30 to-black/70'>
-        <div className='flex flex-col p-10 w-[42rem]'>
+    <div className='flex w-full xl:h-[50%] xl:mt-28 xl:mb-12 bg-homepage-hero bg-cover bg-center bg-norepeat container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700'>
+      <div className='flex bg-zinc-800/80 md:bg-gradient-to-l md:from-black/30 md:to-black/70'>
+        <div className='relative flex flex-col px-4 py-10 md:p-10 md:w-[42rem]'>
           <div className='p-4'>
+            <p className='md:hidden text-white top-3 right-16 absolute'>SignIn</p>
             <h1 className='text-5xl text-purple-300'>Welcome to Next Movies</h1>
             <h2 className='text-3xl text-white'>The Largest Movie Database Available!</h2>
           </div>

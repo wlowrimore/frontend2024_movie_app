@@ -41,8 +41,8 @@ const TopTenMovies = ({ id }) => {
 
   return (
     <div className='bg-black container px-6 pt-6 pb-4 mb-12 border-b-2 border-slate-500 shadow-xl shadow-neutral-700 rounded-t-lg'>
-      <h2 className='text-3xl w-full text-slate-300 pb-6'>Top 10 Movies This Week</h2>
-      <div className='flex gap-6 overflow-x-scroll'>
+      <h2 className='md:text-3xl md:w-full text-slate-300 pb-6'>Top 10 Movies This Week</h2>
+      <div className='flex md:flex-row flex-col md:gap-6 md:overflow-x-scroll'>
         {topMovies.map((movie) => (
           <div key={movie.id} className='flex mb-4'>
             <div className='flex flex-col text-white'>
