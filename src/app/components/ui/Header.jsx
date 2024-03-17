@@ -9,7 +9,7 @@ const Header = async () => {
   const session = await getServerSession(Options);
   // const { data: session } = useSession({ required: true });
   return (
-    <nav className='hidden md:inline-block fixed z-20 top-0 left-0 right-0 shadow-xl shadow-slate-600 border-slate-600 bg-slate-800'>
+    <nav className='hidden md:inline-block md:px-12 fixed z-20 top-0 left-0 right-0 shadow-xl shadow-slate-600 border-slate-600 bg-slate-800'>
       <div className='w-full flex items-center justify-between py-3 container mx-auto'>
         <div className='bg-gradient-to-t from-slate-600 to-zinc-50 bg-clip-text text-transparent'>
           <Link href='/'><h1 className='hover:text-zinc-300 transition duration-300 text-4xl uppercase'>Next Movies</h1></Link>

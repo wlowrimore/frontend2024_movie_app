@@ -6,6 +6,9 @@ import TrialForm from '../forms/TrialForm'
 import { fetchTopTenMovies } from '../data-fetching/movieData'
 import Image from 'next/image'
 
+import { MdOutlineOpenInNew } from 'react-icons/md'
+import { MdOutlineOpenInNewOff } from 'react-icons/md'
+
 const HomePageHero = () => {
   const [formIsOpen, setFormIsOpen] = useState(false)
   const [featuredMovies, setFeaturedMovies] = useState([])
@@ -39,13 +42,13 @@ const HomePageHero = () => {
   }, [featuredMovies])
 
   return (
-    <div className='flex w-full xl:h-[50%] xl:mt-28 xl:mb-12 bg-homepage-hero bg-cover bg-center bg-norepeat container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700'>
-      <div className='flex bg-zinc-900/80 md:bg-gradient-to-l md:from-black/30 md:to-black/70'>
+    <div className='flex w-full xl:h-[50%] xl:mt-28 xl:mb-12 bg-black md:bg-homepage-hero bg-cover bg-center bg-norepeat container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700'>
+      <div className='flex w-full bg-zinc-900/80 md:bg-gradient-to-l from-zinc-200/10 to-zinc-900/30'>
         <div className='relative flex flex-col px-4 py-10 md:p-10 md:w-[42rem]'>
-          <div className='p-4'>
-            <p className='md:hidden text-white top-3 right-16 absolute'>SignIn</p>
-            <h1 className='text-5xl text-purple-300'>Welcome to Next Movies</h1>
-            <h2 className='text-3xl text-white'>The Largest Movie Database Available!</h2>
+          <div className='p-2'>
+            <p className='md:hidden text-white top-4 left-6 absolute text-sm flex items-center gap-2'><MdOutlineOpenInNew />SignIn</p>
+            <h1 className='text-4xl md:text-5xl text-purple-300'>Next Movies</h1>
+            <h2 className='text-2xl md:text-3xl text-white'>The Largest Movie Database Available!</h2>
           </div>
           <div className='px-4 hidden md:block'>
             <p className='text-lg text-white mb-2 tracking-wider'>With Next Movies you will have access to the largest movie database with over one million movies and tv shows to choose from.</p>
@@ -55,14 +58,17 @@ const HomePageHero = () => {
             </div>
           </div>
           {randomMovie && (
-            <div className='p-4'>
+            <div className='md:hidden block mb-[-2rem]'>
               <Image
                 src={`https://image.tmdb.org/t/p/original${randomMovie.poster_path}`}
                 alt={randomMovie.title}
                 width={500}
                 height={500}
-                className='opacity-70 border border-zinc-500 rounded-lg w-full'
+                className='opacity-70 w-full'
               />
+              <div className='md:hidden flex w-full'>
+                <button className='w-full border rounded-b mt-2 mb-6 bg-indigo-300 font-bold text-xl px-6 py-1'>Get 7-Days Free</button>
+              </div>
             </div>
           )}
         </div>
