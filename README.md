@@ -15,7 +15,8 @@ password: password123
 <img src='public/images/readMeImg.webp' alt='example' width='800' height='800' />
 <br />
 <br />
-You can view the live site on [vercel]()
+
+You can view the live site on [vercel](https://frontend2024-movie-app.vercel.app/)
 
 ### Contact:
 
