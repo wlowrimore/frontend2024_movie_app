@@ -42,7 +42,7 @@ const HomePageHero = () => {
   }, [featuredMovies])
 
   return (
-    <div className='flex w-full xl:h-[50%] xl:mt-28 xl:mb-12 bg-black md:bg-homepage-hero bg-cover bg-center bg-norepeat container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700'>
+    <div className='flex w-full xl:h-[50%] xl:mt-28 mb-4 xl:mb-12 bg-black md:bg-homepage-hero bg-cover bg-center bg-norepeat container border-b-2 border-slate-600 rounded shadow-xl shadow-neutral-700'>
       <div className='flex w-full bg-zinc-900/80 md:bg-gradient-to-r md:from-transparent md:to-zinc-900/10'>
         <div className='relative flex flex-col px-4 py-10 md:p-10 md:w-[42rem]'>
           <div className='p-2'>

@@ -37,14 +37,12 @@ const TopTenMovies = ({ id }) => {
     getTopMovies();
   }, [id])
 
-
-
   return (
-    <div className='bg-black container px-6 pt-6 pb-4 mb-12 border-b-2 border-slate-500 shadow-xl shadow-neutral-700 rounded-t-lg'>
-      <h2 className='md:text-3xl md:w-full text-slate-300 pb-6'>Top 10 Movies This Week</h2>
+    <div className='bg-black container px-6 pt-6 pb-4 mb-4 md:mb-12 border-b-2 border-slate-500 shadow-xl shadow-neutral-700 rounded-t-lg'>
+      <h2 className='md:text-3xl md:w-full text-slate-300 pb-6 text-center md:text-start'>Top 10 Movies This Week</h2>
       <div className='flex md:flex-row flex-col md:gap-6 md:overflow-x-scroll'>
         {topMovies.map((movie) => (
-          <div key={movie.id} className='flex mb-4'>
+          <div key={movie.id} className='flex mb-4 justify-center md:justify-start'>
             <div className='flex flex-col text-white'>
               <p className='w-52 h-72' onClick={(() => openModal(movie))}>
                 {movie ? (
@@ -61,7 +59,7 @@ const TopTenMovies = ({ id }) => {
                 )}
               </p>
               <div className='flex items-center mt-2 text-sm text-slate-300 gap-4'>
-                <h3>{movie.title}</h3>
+                <h3 className='max-w-[10rem] md:max-w-full'>{movie.title}</h3>
                 <p>{movie.release_date.split('-')[0]}</p>
               </div>
               <div className='flex items-center'>

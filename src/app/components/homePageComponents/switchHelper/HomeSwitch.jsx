@@ -14,9 +14,9 @@ const HomeSwitch = () => {
     <div className=''>
       <HomePageHero />
       <CTASummary />
-      {/* <TopTenMovies /> */}
-      {/* <SEOFeatures /> */}
-      {/* <TopTenTVShows /> */}
+      <TopTenMovies />
+      <SEOFeatures />
+      <TopTenTVShows />
     </div>
   )
 }
